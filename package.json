@@ -8,7 +8,9 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "faker": "^5.5.3"
+  },
   "devDependencies": {
     "cypress": "^8.5.0"
   }
