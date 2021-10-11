@@ -1,4 +1,4 @@
-import { internet } from "faker";
+
 import { allGalleries } from "./../page_objects/allGalleries";
 
 describe('all galleries',()=>{

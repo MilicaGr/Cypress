@@ -17,6 +17,9 @@ export default class LoginPage {
     get passwordInput() {
         return cy.get('#password')
     }
+    get errorMessage(){
+        return cy.get('p[class="alert alert-danger"]')
+    }
     login(email,password) {
         this.loginButton.click()
         this.emailInput.type(email);

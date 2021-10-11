@@ -17,13 +17,6 @@ export default class CreateGallery{
     get passwordInput() {
         return cy.get('#password')
     }
-    login(email,password) {
-        this.loginButton.click()
-        this.emailInput.type(email);
-        this.passwordInput.type(password);
-        this.submitButton.click();
-    }
-    ///
     get createGalleryButton(){
         return cy.get("a[href='/create']")
     }
