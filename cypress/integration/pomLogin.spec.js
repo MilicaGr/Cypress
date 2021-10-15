@@ -17,7 +17,7 @@ describe('Improved login',()=>{
         cy.url().should('contains', 'gallery-app.')
     })
 
-    only('Successfull login',()=>{
+    it('Successfull login',()=>{
         cy.intercept(
             "POST",
             "https://gallery-api.vivifyideas.com/api/auth/login",
