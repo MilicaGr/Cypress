@@ -36,4 +36,34 @@ Cypress.Commands.add('loginViaBackend',(email,password)=>{
     ).its('body').then((response) => {
         window.localStorage.setItem('token', response.access_token);
     });
-})
+});
+
+Cypress.Commands.add(
+    "createGalleryViaBackend",
+    (title, description, imageUrl) => {
+      cy.request({
+        method: "POST",
+        url: "https://gallery-api.vivifyideas.com/api/galleries",
+        body: {
+          title: title,
+          description: description,
+          images: [imageUrl],
+        },
+        headers: {
+          authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        },
+      });
+    });
+
+    Cypress.Commands.add("deleteGalleryViaBackend", (id) => {
+        cy.request({
+          method: "DELETE",
+          url: `https://gallery-api.vivifyideas.com/api/galleries/${id}`,
+          headers: {
+            authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          },
+        });
+    });
+    
+  
+    
