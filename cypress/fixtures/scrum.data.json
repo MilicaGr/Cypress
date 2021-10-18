@@ -1,0 +1,8 @@
+{
+    "existingMail": "test@test.com",
+    "validMail": "slbl@gmail.com",
+    "validPassword": "sifra",
+    "validNumberOfUsers": "1",
+    "emailWithout": "testing.com",
+    "shortPassword": "sifr"
+}
