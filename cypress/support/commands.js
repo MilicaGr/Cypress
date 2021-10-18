@@ -64,6 +64,20 @@ Cypress.Commands.add(
           },
         });
     });
-    
+
+    Cypress.Commands.add("editviaBackend",(id,title,description)=>{
+      cy.request({
+        method: "PUT",
+        url: `https://gallery-api.vivifyideas.com/api/galleries/${id}`,
+        body: {
+          title: title,
+          description: description
+
+        },
+        headers: {
+          authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        },
+      })
+    })
   
     

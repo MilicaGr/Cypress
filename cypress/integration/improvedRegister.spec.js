@@ -9,10 +9,6 @@ describe('Improved register',()=>{
         randomLastName: faker.name.lastName()
     }
 
-   // let firstName = "first";
-   // let lastName = "last";
-   // let correctEmail = "novimejl@novi.com";
-   // let correctPassword = "nervoznipostar1994";
 
     before('visit link', ()=>{
         cy.visit("/");

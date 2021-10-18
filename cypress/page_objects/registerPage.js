@@ -1,19 +1,5 @@
 export default class RegisterPage {
-   get firstNameinput(){
-       return cy.get("input[id='first-name']")
-   }
-   get lastNameinput(){
-       return cy.get("input[id='last-name']")
-   }
-   get emailInput(){
-        return cy.get("input[id='email']")
-   }
-   get passwordInput(){
-       return cy.get('input[id="password"]')
-   }
-   get confirmPassword(){
-       return cy.get("input[id='password-confirmation']")
-   }
+   
    get checkBox(){
        return cy.get("input[type='checkbox']")
    }
@@ -50,15 +36,18 @@ export default class RegisterPage {
    get registerTitle(){
        return cy.get("h1");
    }
+   getInputField(id) {
+       return cy.get(`#${id}`);
+   }
 
 
 
    register(firstName,lastName,email,password,confirmPassword){
-       this.firstNameinput.type(firstName);
-       this.lastNameinput.type(lastName);
-       this.emailInput.type(email);
-       this.passwordInput.type(password);
-       this.confirmPassword.type(confirmPassword);
+       this.getInputField('first-name').type(firstName);
+       this.getInputField('last-name').type(lastName);
+       this.getInputField('email').type(email);
+       this.getInputField('password').type(password);
+       this.getInputField('password-confirmation').type(confirmPassword);
        this.checkBox.check();
        this.submitButton.click();
    }
@@ -67,11 +56,11 @@ export default class RegisterPage {
    }
 
    noCehckboxRegister(firstName,lastName,email,password,confirmPassword){
-    this.firstNameinput.type(firstName);
-    this.lastNameinput.type(lastName);
-    this.emailInput.type(email);
-    this.passwordInput.type(password);
-    this.confirmPassword.type(confirmPassword);
+    this.getInputField('first-name').type(firstName);
+    this.getInputField('last-name').type(lastName);
+    this.getInputField('email').type(email);
+    this.getInputField('password').type(password);
+    this.getInputField('password-confirmation').type(confirmPassword);
     this.submitButton.click();
    }
 }

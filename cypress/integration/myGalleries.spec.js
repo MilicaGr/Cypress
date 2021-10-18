@@ -1,6 +1,7 @@
 import { myGalleries } from './../page_objects/myGalleries';
 import { registerPage } from '../page_objects/registerPage';
 import { loginPage } from './../page_objects/loginPage';
+
 const faker = require("faker");
 
 describe('Create gallery and delete', () => {
@@ -25,18 +26,25 @@ describe('Create gallery and delete', () => {
     });
 
     it('create via BE',()=>{
-        cy.createGalleryViaBackend("Titleee", "descr", "https://i.ytimg.com/vi/NIjk48KGzzE/maxresdefault.jpg").then((responseObject) => {
+        cy.createGalleryViaBackend("TitleeeAAA", "descr", "https://i.ytimg.com/vi/NIjk48KGzzE/maxresdefault.jpg").then((responseObject) => {
             let id = responseObject.body.id;
             console.log(id)
             cy.writeFile('galleryId.json', id.toString());
         })
     })
-    it.only('test delete gallery via BE', () => {
+    it('test delete gallery via BE', () => {
         cy.readFile('./galleryId.json').then((file) => {
             let galleryId = file;
             cy.deleteGalleryViaBackend(galleryId);
         });
     })
+
+    it('edit via BE',()=>{
+        cy.readFile('./galleryId.json').then((file) => {
+            let galleryId = file;
+        cy.editviaBackend(galleryId);
+    })
+        });
 
 
     it('successfull create gallery', () => {
@@ -155,7 +163,8 @@ describe('Create gallery and delete', () => {
         myGalleries.images.should('have.value', correctUrl2);
     })
 
-    //KOD DELETE GALLERY NE PRIKAZUJE DELETE BUTTON KADA POKRENEM TEST PA NISAM NISTA MOGLA DA URADIM
+    
+    
     
 
 

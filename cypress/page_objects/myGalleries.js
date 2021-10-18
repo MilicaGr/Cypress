@@ -6,12 +6,7 @@ export default class MyGalleries{
     get createGalleryTitle(){
         return cy.get("h1");
     }
-    get title(){
-        return cy.get('#title');
-    }
-    get description() {
-        return cy.get('#description');
-    }
+   
     get images(){
         return cy.get('input[type="url"]').eq(0);
     }
@@ -57,16 +52,26 @@ export default class MyGalleries{
     get invalidUrlErrorMessage(){
         return cy.get('p[class="alert alert-danger"]');
     }
+    get editButton(){
+        return cy.get('a[type="button"]');
+    }
+    get myGalleries(){
+        return cy.get('a[href="/my-galleries"]');
+    }
+    getInputField(id) {
+        return cy.get(`#${id}`)
+    }
+
     create(title,description,images) {
-        this.title.type(title);
-        this.description.type(description);
+        this.getInputField('title').type(title);
+        this.getInputField('description').type(description);
         this.images.type(images);
         this.submitButtonCreate.click();
     }
 
     create2Url(title,description,images,images2){
-        this.title.type(title);
-        this.description.type(description);
+        this.getInputField('title').type(title);
+        this.getInputField('description').type(description);
         this.images.type(images);
         this.addImageButton.click();
         this.images2.type(images2);
@@ -75,8 +80,8 @@ export default class MyGalleries{
     }
 
     checkCreate2Url(title,description,images,images2){
-        this.title.type(title);
-        this.description.type(description);
+        this.getInputField('title').type(title);
+        this.getInputField('description').type(description);
         this.images.type(images);
         this.addImageButton.click();
         this.images2.type(images2);
@@ -85,8 +90,8 @@ export default class MyGalleries{
 
     }
     checkUpbutton(title,description,images,images2){
-        this.title.type(title);
-        this.description.type(description);
+        this.getInputField('title').type(title);
+        this.getInputField('description').type(description);
         this.images.type(images);
         this.addImageButton.click();
         this.images2.type(images2);
@@ -94,7 +99,8 @@ export default class MyGalleries{
         this.submitButtonCreate.click();
        
     }
-
+    
+    
    
     
 }

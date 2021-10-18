@@ -139,7 +139,7 @@ describe('register page',()=>{
     })
 })
 
-    it('register without checkbox',()=>{
+    it.only('register without checkbox',()=>{
         cy.intercept(
             "POST",
             "https://gallery-api.vivifyideas.com/api/auth/register",

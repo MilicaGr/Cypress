@@ -10,20 +10,17 @@ export default class LoginPage {
     get loginButton(){
         return cy.get('a[href="/login"]')
     }
-    get emailInput(){
-        return cy.get('#email')
-
-    }
-    get passwordInput() {
-        return cy.get('#password')
-    }
+    
     get errorMessage(){
         return cy.get('p[class="alert alert-danger"]')
     }
+    getInputField(id) {
+        return cy.get(`#${id}`);
+    }
     login(email,password) {
         this.loginButton.click()
-        this.emailInput.type(email);
-        this.passwordInput.type(password);
+        this.getInputField('email').type(email);
+        this.getInputField('password').type(password);
         this.submitButton.click();
     }
 
