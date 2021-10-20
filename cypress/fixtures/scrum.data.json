@@ -2,7 +2,13 @@
     "existingMail": "test@test.com",
     "validMail": "slbl@gmail.com",
     "validPassword": "sifra",
-    "validNumberOfUsers": "1",
+    "validNumberOfUsers": "15",
     "emailWithout": "testing.com",
-    "shortPassword": "sifr"
+    "shortPassword": "sifr",
+    "validLoginMail": "bla@blabla.com",
+    "validLoginPassword": "sifra",
+    "firstName": "bla",
+    "lastName": "bla",
+    "companyName": "bla",
+    "organizationName": "bla"
 }
